@@ -10,7 +10,7 @@ public class Spam {
     private String lastName;
     private double gpa;
 
-    public Spam(int sid, String firstName, String lastName, double gpa) {
+    public Spam(int sid, String firstName) {
         this.sid = sid;
         this.firstName = firstName;
         this.lastName = lastName;
