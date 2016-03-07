@@ -8,16 +8,16 @@ import javafx.collections.ObservableList;
  */
 public class DataSource {
 
-    public static ObservableList<Spam> getAllStudents() {
-        ObservableList<Spam> students = FXCollections.observableArrayList();
+    public static ObservableList<TestFile> getAllSpam() {
+        ObservableList<TestFile> spamMessages = FXCollections.observableArrayList();
 
-        students.add(new Spam(100100100, "Janet", 2.85));
-        students.add(new Spam(100100101, "Abichal", 2.90));
-        students.add(new Spam(100100102, "Cecile", 3.4));
-        students.add(new Spam(100100103, "Pablo", 4.0));
-        students.add(new Spam(100100104, "Flora", 4.3));
+        spamMessages.add(new TestFile("100100100", "Janet", 2.85));
+        spamMessages.add(new TestFile("100100101", "Abichal", 2.90));
+        spamMessages.add(new TestFile("100100102", "Cecile", 3.4));
+        spamMessages.add(new TestFile("100100103", "Pablo", 4.0));
+        spamMessages.add(new TestFile("100100104", "Flora", 4.3));
 
 
-        return students;
+        return spamMessages;
     }
 }
