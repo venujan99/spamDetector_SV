@@ -11,22 +11,28 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+
+import java.io.File;
 
 public class Main extends Application {
 
     private Stage window;
     private BorderPane layout;
-    private javafx.scene.control.TableView<Spam> table;
-
+    private TableView<Spam> table;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Spam Detector");
 
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setInitialDirectory(new File("."));
+        File mainDirectory = directoryChooser.showDialog(primaryStage);
+
         /* create the table (for the center of the user interface) */
         table = new TableView<>();
-      //  table.setItems(DataSource.getAllStudents());
+        table.setItems(DataSource.getAllStudents());
         table.setEditable(true);
 
         /* create the table's columns */
@@ -35,13 +41,12 @@ public class Main extends Application {
         sidColumn.setMinWidth(100);
         sidColumn.setCellValueFactory(new PropertyValueFactory<>("sid"));
 */
-        TableColumn<Spam,String> firstNameColumn = null;
+        TableColumn<Spam, Integer> firstNameColumn = null;
         firstNameColumn = new TableColumn<>("File");
         firstNameColumn.setMinWidth(300);
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("file"));
-        firstNameColumn.setCellFactory(TextFieldTableCell.<Spam>forTableColumn());
-        firstNameColumn.setOnEditCommit((TableColumn.CellEditEvent<Spam, String> event) -> {
-            ((Spam)event.getTableView().getItems().get(event.getTablePosition().getRow())).setFirstName(event.getNewValue());
+        firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("fileName"));
+        firstNameColumn.setOnEditCommit((TableColumn.CellEditEvent<Spam, Integer> event) -> {
+            ((Spam)event.getTableView().getItems().get(event.getTablePosition().getRow())).setFileName(event.getNewValue());
         });
 
         TableColumn<Spam,String> lastNameColumn = null;
@@ -54,6 +59,13 @@ public class Main extends Application {
         });
 
         TableColumn<Spam,Double> gpaColumn = null;
+        gpaColumn = new TableColumn<>("Spam Probability");
+        gpaColumn.setMinWidth(300);
+        gpaColumn.setCellValueFactory(new PropertyValueFactory<>("spamProbability"));
+
+        table.getColumns().add(firstNameColumn);
+        table.getColumns().add(lastNameColumn);
+        table.getColumns().add(gpaColumn);
 
         /* create an edit form (for the bottom of the user interface) */
         GridPane editArea = new GridPane();
@@ -72,7 +84,6 @@ public class Main extends Application {
         TextField fnameField = new TextField();
         fnameField.setPromptText("");
         editArea.add(fnameField, 1, 1);
-
 
 
        /* Button addButton = new Button("Add");
@@ -100,8 +111,6 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-
 
 
     public static void main(String[] args) {
