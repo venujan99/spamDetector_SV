@@ -55,7 +55,7 @@ public class Main extends Application {
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("actualClass"));
         lastNameColumn.setCellFactory(TextFieldTableCell.<Spam>forTableColumn());
         lastNameColumn.setOnEditCommit((TableColumn.CellEditEvent<Spam, String> event) -> {
-            ((Spam)event.getTableView().getItems().get(event.getTablePosition().getRow())).setLastName(event.getNewValue());
+            ((Spam)event.getTableView().getItems().get(event.getTablePosition().getRow())).setActualClass(event.getNewValue());
         });
 
         TableColumn<Spam,Double> gpaColumn = null;

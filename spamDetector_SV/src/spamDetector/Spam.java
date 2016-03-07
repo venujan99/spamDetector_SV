@@ -6,21 +6,21 @@ package spamDetector;
 public class Spam {
 
     private int fileName;
-    private String lastName;
-    private double gpa;
+    private String actualClass;
+    private double spamProbability;
 
-    public Spam(int fileName, String lastName, double gpa) {
+    public Spam(int fileName, String actualClass, double spamProbability) {
 
         this.fileName = fileName;
-        this.lastName = lastName;
-        this.gpa = gpa;
+        this.actualClass = actualClass;
+        this.spamProbability = spamProbability;
     }
 
     public int getFileName() { return this.fileName; }
-    public String getLastName() { return this.lastName; }
-    public double getGpa() { return this.gpa; }
+    public String getActualClass() { return this.actualClass; }
+    public double getSpamProbability() { return this.spamProbability; }
 
     public void setFileName(int fileName) { this.fileName = fileName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
-    public void setGpa(double gpa) { this.gpa = gpa; }
+    public void setActualClass(String actualClass) { this.actualClass = actualClass; }
+    public void setSpamProbability(double spamProbability) { this.spamProbability = spamProbability; }
 }
