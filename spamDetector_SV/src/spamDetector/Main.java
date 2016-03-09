@@ -24,7 +24,7 @@ public class Main extends Application {
     private BorderPane layout;
     private TableView<TestFile> table;
     public static File[] fList;
-    public static List list;
+    public static List<String> list;
 
 
 
@@ -41,12 +41,13 @@ public class Main extends Application {
         fList = directory.listFiles();
 
 
+
         for (File file : fList) {
 
             if (file.isFile()) {
 
                 // System.out.println(file.getName());
-                List<String> list = new ArrayList<String>();
+                list = new ArrayList<String>();
                 list.add(file.getName());
                 System.out.println(list);
 

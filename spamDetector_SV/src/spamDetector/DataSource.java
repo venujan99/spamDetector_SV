@@ -16,7 +16,7 @@ public class DataSource {
         ObservableList<TestFile> spamMessages = FXCollections.observableArrayList();
 
 
-        spamMessages.add(new TestFile(Main.fList.toString(), "Ham", 2.85));
+        spamMessages.add(new TestFile(Main.list.toString(), "Ham", 2.85));
         spamMessages.add(new TestFile("100100101", "Spam", 2.90));
         spamMessages.add(new TestFile("100100102", "Spam", 3.4));
         spamMessages.add(new TestFile("100100103", "Ham", 4.0));
