@@ -27,26 +27,25 @@ public class Main extends Application {
     public static List<String> list;
 
 
-
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Spam Detector");
 
+        // Opening the file dialog to allow user to choose a directory
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(new File("."));
         File mainDirectory = directoryChooser.showDialog(primaryStage);
 
+        // getting the name of the directory chosen
         File directory = new File(String.valueOf(mainDirectory));
 
         //get all the files from a directory and putting into a list
         fList = directory.listFiles();
 
-
-
+        // for loop to add each file name into an ArrayList
         for (File file : fList) {
 
             if (file.isFile()) {
 
-                // System.out.println(file.getName());
                 list = new ArrayList<String>();
                 list.add(file.getName());
                 System.out.println(list);
@@ -54,12 +53,13 @@ public class Main extends Application {
             }
         }
 
-        /* create the table (for the center of the user interface) */
+        //initializing tableview
         table = new TableView<>();
+        //calling the getAllSpam method to set table values
         table.setItems(DataSource.getAllSpam());
         table.setEditable(true);
 
-
+        //creating filename column
         TableColumn<TestFile, String> fileNameColumn = null;
         fileNameColumn = new TableColumn<>("File");
         fileNameColumn.setMinWidth(300);
@@ -68,6 +68,7 @@ public class Main extends Application {
             ((TestFile) event.getTableView().getItems().get(event.getTablePosition().getRow())).setFileName(event.getNewValue());
         });
 
+        //creating actualClass column
         TableColumn<TestFile, String> actualClassColumn = null;
         actualClassColumn = new TableColumn<>("Actual Class");
         actualClassColumn.setMinWidth(150);
@@ -77,6 +78,7 @@ public class Main extends Application {
             ((TestFile) event.getTableView().getItems().get(event.getTablePosition().getRow())).setActualClass(event.getNewValue());
         });
 
+        //creating spamProbability column
         TableColumn<TestFile, Double> spamProbabilityColumn = null;
         spamProbabilityColumn = new TableColumn<>("Spam Probability");
         spamProbabilityColumn.setMinWidth(300);
@@ -92,6 +94,7 @@ public class Main extends Application {
         editArea.setVgap(10);
         editArea.setHgap(10);
 
+        //labels for bottom of UI
         Label accuracyLabel = new Label("Accuracy:");
         editArea.add(accuracyLabel, 0, 0);
         TextField accField = new TextField();
@@ -105,12 +108,11 @@ public class Main extends Application {
         editArea.add(precisionField, 1, 1);
 
 
-        /* arrange all components in the main user interface */
         layout = new BorderPane();
-        // layout.setTop(menuBar);
         layout.setCenter(table);
         layout.setBottom(editArea);
 
+        //screen size
         Scene scene = new Scene(layout, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -124,5 +126,3 @@ public class Main extends Application {
 
 
 }
-
-

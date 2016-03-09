@@ -18,12 +18,16 @@ public class TestFile {
         this.spamProbability = spamProbability;
         this.actualClass = actualClass;
     }
+
+    //get methods for values
     public String getFileName() { return this.fileName; }
     public double getSpamProbability() { return this.spamProbability; }
     public String getSpamProbRounded() {
         DecimalFormat df = new DecimalFormat("0.00000");
         return df.format(this.spamProbability);
     }
+
+    //set methods for values
     public String getActualClass() { return this.actualClass; }
     public void setFileName(String value) { this.fileName = value; }
     public void setSpamProbability(double val) { this.spamProbability = val; }
