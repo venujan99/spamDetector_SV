@@ -16,11 +16,11 @@ public class DataSource {
 
         //creating the table info
        //getting the file name from the method in Main class
-        spamMessages.add(new TestFile(Main.list.toString(), "Ham", 2.85));
-        spamMessages.add(new TestFile("100100101", "Spam", 2.90));
-        spamMessages.add(new TestFile("100100102", "Spam", 3.4));
-        spamMessages.add(new TestFile("100100103", "Ham", 4.0));
-        spamMessages.add(new TestFile("100100104", "Spam", 4.3));
+        spamMessages.add(new TestFile(Main.list.toString(), Main.className , 2.85));
+        spamMessages.add(new TestFile("100100101", "", 2.90));
+        spamMessages.add(new TestFile("100100102", "", 3.4));
+        spamMessages.add(new TestFile("100100103", "", 4.0));
+        spamMessages.add(new TestFile("100100104", "", 4.3));
 
        //above code used for testing hardcoded
 

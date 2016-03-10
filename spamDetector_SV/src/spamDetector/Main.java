@@ -25,7 +25,7 @@ public class Main extends Application {
     private TableView<TestFile> table;
     public static File[] fList;
     public static List<String> list;
-
+    public static String className;
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Spam Detector");
@@ -38,6 +38,16 @@ public class Main extends Application {
         // getting the name of the directory chosen
         File directory = new File(String.valueOf(mainDirectory));
 
+        if (String.valueOf(mainDirectory).endsWith("ham") || String.valueOf(mainDirectory).endsWith("ham2"))
+        {
+            className = "Ham";
+        }
+
+        if (String.valueOf(mainDirectory).endsWith("spam"))
+        {
+            className = "Spam";
+        }
+
         //get all the files from a directory and putting into a list
         fList = directory.listFiles();
 
@@ -48,8 +58,6 @@ public class Main extends Application {
 
                 list = new ArrayList<String>();
                 list.add(file.getName());
-                System.out.println(list);
-
             }
         }
 
