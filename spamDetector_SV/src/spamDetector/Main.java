@@ -61,6 +61,8 @@ public class Main extends Application {
             }
         }
 
+        System.out.println(list.size());
+
         //initializing tableview
         table = new TableView<>();
         //calling the getAllSpam method to set table values
@@ -70,7 +72,7 @@ public class Main extends Application {
         //creating filename column
         TableColumn<TestFile, String> fileNameColumn = null;
         fileNameColumn = new TableColumn<>("File");
-        fileNameColumn.setMinWidth(300);
+        fileNameColumn.setMinWidth(400);
         fileNameColumn.setCellValueFactory(new PropertyValueFactory<>("fileName"));
         fileNameColumn.setOnEditCommit((TableColumn.CellEditEvent<TestFile, String> event) -> {
             ((TestFile) event.getTableView().getItems().get(event.getTablePosition().getRow())).setFileName(event.getNewValue());
