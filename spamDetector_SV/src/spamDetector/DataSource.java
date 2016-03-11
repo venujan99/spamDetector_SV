@@ -23,17 +23,11 @@ public class DataSource {
 
        for (File file : Main.fList) {
 
-           spamMessages.add(new TestFile(Main.list.get(0).toString(), Main.className , 2.85));
+           //getting the file info and creating a row
+           //could not get the next file's name, but able to print in console output.
+           spamMessages.add(new TestFile(Main.list.get(0).toString(), Main.className , 0.00));
 
        }
-
-       /* spamMessages.add(new TestFile(Main.list.toString(), Main.className , 2.85));
-        spamMessages.add(new TestFile("100100101", "", 2.90));
-        spamMessages.add(new TestFile("100100102", "", 3.4));
-        spamMessages.add(new TestFile("100100103", "", 4.0));
-        spamMessages.add(new TestFile("100100104", "", 4.3));*/
-
-       //above code used for testing hardcoded
 
         return spamMessages;
     }

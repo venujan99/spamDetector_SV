@@ -1,4 +1,10 @@
-One of the ways is hashing trick, the use of dictionaries. 
-In order to find out if a word is spam or ham, a list of words could be mapped directly to an index with a hashing function. 
-A list of spam words like "free, buy, sell," will be filtered out as spam and will be marked as a spam based on the words in an email message.  
-When the words are mapped to index directly with a hashfunction, not much space will be taken in application.
+ 
+
+One of the way is hashing trick, the use of dictionaries. 
+In order to find out if a word is spam or ham, a list of words could be mapped directly to an index in a array with hashing function. 
+A list of spam words like "free, buy, sell and any other ad-like/spam words," will be filtered out  
+and will be marked as a spam based on the words in an email message.  
+When the words are mapped to index directly with a hashfunction, not much space will be taken in the application. 
+
+Another possibilty is to run spellcheck on the email messages prior 
+to the classification. Most spam have mispelled words. A word scanner for most used words/correct spelling will aide in determing the junk/important messages

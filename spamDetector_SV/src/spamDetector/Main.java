@@ -39,11 +39,12 @@ public class Main extends Application {
         // getting the name of the directory chosen
         File directory = new File(String.valueOf(mainDirectory));
 
+        //deciding weather class is Ham or Spam
         if (String.valueOf(mainDirectory).endsWith("ham") || String.valueOf(mainDirectory).endsWith("ham2"))
         {
             className = "Ham";
         }
-
+        //deciding weather class is Ham or Spam
         if (String.valueOf(mainDirectory).endsWith("spam"))
         {
             className = "Spam";
@@ -63,7 +64,6 @@ public class Main extends Application {
 
         }
 
-        System.out.println(list.size());
 
         //initializing tableview
         table = new TableView<>();
