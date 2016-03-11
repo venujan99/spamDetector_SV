@@ -16,7 +16,7 @@ public class ScanFile {
         this.directoryName=directoryName;
         this.trainFreq=trainFreq;
     }
-
+// Map to read the files
     public Map <String, Integer> readFiles(File folder, Map<String, Integer> trainFreq){
         Map <String, Integer>freq=new TreeMap<>();
         try{
@@ -48,15 +48,5 @@ public class ScanFile {
         return false;
     }
 
-    public Map <String, Double> getProbabilities(Map<String, Integer> map,int fileCount){
-        Map <String, Double> probabilities = new TreeMap<>();
-        Set<String> keys=map.keySet();
-        Iterator<String> keyIterator=keys.iterator();
-        String word;
-        while (keyIterator.hasNext()){
-            word=keyIterator.next();
-            probabilities.put(word,map.get(word)/(double) fileCount);
-        }
-        return probabilities;
-    }
+
 }

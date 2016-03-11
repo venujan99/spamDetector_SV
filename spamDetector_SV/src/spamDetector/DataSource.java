@@ -23,8 +23,8 @@ public class DataSource {
 
        for (File file : Main.fList) {
 
-           spamMessages.add(new TestFile(Main.list.get(0), Main.className , 2.85));
-           i++;
+           spamMessages.add(new TestFile(Main.list.get(0).toString(), Main.className , 2.85));
+
        }
 
        /* spamMessages.add(new TestFile(Main.list.toString(), Main.className , 2.85));

@@ -16,8 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -25,47 +24,12 @@ public class Main extends Application {
     private BorderPane layout;
     private TableView<TestFile> table;
     public static File[] fList;
-    public static ArrayList<String> list;
+    public static List<String> list;
     public static String className;
+    public static int listSize = 0;
 
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Spam Detector");
-
-
-
-        //training
-        Map<String, Integer> trainHamFreq = new TreeMap<>();
-        int hamFileCount=0;
-        for (File fileEntry:new File("./data/train/ham").listFiles()){
-            hamFileCount++;
-        }
-        ScanFile trainHam= new ScanFile("./data/train/ham", trainHamFreq);
-        trainHamFreq = trainHam.readFiles(new File("./data/train/ham"), trainHamFreq);
-
-        int spamFileCount=0;
-        for (File fileEntry:new File("./data/train/spam").listFiles()){
-            spamFileCount++;
-        }
-
-        Map<String, Integer> trainSpamFreq = new TreeMap<>();
-        ScanFile trainSpam= new ScanFile("./data/train/spam", trainSpamFreq);
-        trainSpamFreq = trainSpam.readFiles(new File("./data/train/spam"), trainSpamFreq);
-
-        //probability words
-        Map hamWordFolder = trainHam.getProbabilities(trainHamFreq,hamFileCount);
-
-        Map spamWordFolder = trainSpam.getProbabilities(trainSpamFreq,spamFileCount);
-
-        Probabilities spam=new Probabilities(hamWordFolder,spamWordFolder);
-
-        Map spamWords = spam.spamProbability(hamWordFolder,spamWordFolder);
-
-
-
-
-
-
-
 
         // Opening the file dialog to allow user to choose a directory
         DirectoryChooser directoryChooser = new DirectoryChooser();
@@ -91,11 +55,12 @@ public class Main extends Application {
         // for loop to add each file name into an ArrayList
         for (File file : fList) {
 
-            if (file.isFile()) {
-
-                //list = new ArrayList<String>();
+                list = new ArrayList<String>();
                 list.add(file.getName());
-            }
+
+
+                System.out.println(list);
+
         }
 
         System.out.println(list.size());

@@ -1,0 +1,4 @@
+One of the ways is hashing trick, the use of dictionaries. 
+In order to find out if a word is spam or ham, a list of words could be mapped directly to an index with a hashing function. 
+A list of spam words like "free, buy, sell," will be filtered out as spam and will be marked as a spam based on the words in an email message.  
+When the words are mapped to index directly with a hashfunction, not much space will be taken in application.
