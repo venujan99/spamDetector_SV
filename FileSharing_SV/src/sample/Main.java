@@ -61,7 +61,6 @@ public class Main extends Application {
         Button addButton = new Button("Download");
         Button addBtn2 = new Button("Upload");
 
-
         /*addButton.setOnAction(new EventHandler<ActionEvent>()
       /*  {
             @Override public void handle(ActionEvent e) {}
