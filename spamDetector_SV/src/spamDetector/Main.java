@@ -50,6 +50,7 @@ public class Main extends Application {
             className = "Spam";
         }
 
+
         //get all the files from a directory and putting into a list
         fList = directory.listFiles();
 
